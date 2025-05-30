@@ -1,7 +1,5 @@
 <?php
-
 require_once __DIR__ . '/Route.php';
-require_once __DIR__ . '/Helpers.php';
 
 class Router {
     protected array $routes = [];
@@ -20,6 +18,7 @@ class Router {
 
     public function resolve(string $method, string $uri): void {
         $path = rtrim(parse_url($uri, PHP_URL_PATH), '/') ?: '/';
+
         foreach ($this->routes as $route) {
             if ($route->method === $method && $route->path === $path) {
                 if (!class_exists($route->controller)) {
@@ -33,6 +32,8 @@ class Router {
                 }
 
                 call_user_func([$controller, $route->action]);
+
+                return;
             }
         }
 
