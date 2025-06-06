@@ -1,8 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../app/core/Router.php';
 require_once __DIR__ . '/../app/core/Helpers.php';
+require_once __DIR__ . '/../app/core/Router.php';
 require_once __DIR__ . '/../app/controllers/ProductController.php';
+require_once __DIR__ . '/../app/controllers/RenderErrors.php';
+
 
 
 // Se crea la instancia de la clase Router.
